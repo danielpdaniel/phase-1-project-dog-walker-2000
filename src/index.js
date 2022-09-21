@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", ()=>{
     let newHeader = document.createElement("h2");
-    newHeader.textContent = "hiiiiiii"
+    newHeader.textContent = "hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
     document.querySelector("body").appendChild(newHeader)
 
     const dogUrl = "https://dog.ceo/api/breeds/image/random/"
@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const newDog = document.createElement("img");
         newDog.id = "doggie";
         newDog.src = url;
-        document.querySelector("body").appendChild(newDog)
+        newDog.style.left = "100px"
+        document.querySelector("div#dogImg").appendChild(newDog)
     }
 
     function fetchDog(){
@@ -22,5 +23,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     // createDog(dogUrl)
     fetchDog()
+
+    // const doggie = document.querySelector("div").childNodes;
+    // console.log(doggie)
+
+    function doggieLeft(){
+        const thisDoggie = document.querySelector("img#doggie");
+        const leftPosition = thisDoggie.style.left.replace('px', '');
+        const leftPositionNum = parseInt(leftPosition, 10);
+        if(leftPositionNum > 0){
+        thisDoggie.style.left = `${leftPositionNum - 10}px`
+        }
+        // thisDoggie.style.left = `${thisDoggie.style.left + 100}px`
+    }
+
+    document.addEventListener("keydown", doggieLeft)
 
 })

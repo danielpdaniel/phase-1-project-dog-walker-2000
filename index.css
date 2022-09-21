@@ -8,4 +8,5 @@ h1 {
 
 #doggie {
     max-width: 200px;
+    position: absolute;
 }
