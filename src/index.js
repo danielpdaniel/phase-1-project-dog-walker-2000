@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         .then(res => res.json())
         .then(data => {
             data.message.forEach(createDogOption)
+            createDog(data.message[0])
             // data.message.forEach(console.log(data.message))
         })
     }
@@ -50,7 +51,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
 
 
-    createDog(`https://images.dog.ceo/breeds/labrador/n02099712_3613.jpg`)
+    // createDog(`https://images.dog.ceo/breeds/labrador/n02099712_3613.jpg`)
     fetchRandomDogs()
 
 
