@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         newDog.id = "doggie";
         newDog.src = url;
         newDog.style.left = "100px"
+        newDog.style.bottom = `0px`
         document.querySelector("div#dogImg").appendChild(newDog)
     }
 
@@ -26,17 +27,58 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     // const doggie = document.querySelector("div").childNodes;
     // console.log(doggie)
+    const speed = 100;
 
     function doggieLeft(){
         const thisDoggie = document.querySelector("img#doggie");
         const leftPosition = thisDoggie.style.left.replace('px', '');
         const leftPositionNum = parseInt(leftPosition, 10);
         if(leftPositionNum > 0){
-        thisDoggie.style.left = `${leftPositionNum - 10}px`
+        thisDoggie.style.left = `${leftPositionNum - speed}px`
         }
-        // thisDoggie.style.left = `${thisDoggie.style.left + 100}px`
-    }
+    };
 
-    document.addEventListener("keydown", doggieLeft)
+    function doggieRight(){
+        const thisDoggie = document.querySelector("img#doggie");
+        const leftPosition = thisDoggie.style.left.replace('px', '');
+        const leftPositionNum = parseInt(leftPosition, 10);
+        if(leftPositionNum < window.innerWidth){
+        thisDoggie.style.left = `${leftPositionNum + speed}px`
+        }
+    };
 
+    function doggieUp(){
+        const thisDoggie = document.querySelector("img#doggie");
+        const bottomPosition = thisDoggie.style.bottom.replace("px", "");
+        const bottomPositionNum = parseInt(bottomPosition, 10);
+        if (bottomPositionNum < window.innerHeight - thisDoggie.height){
+        thisDoggie.style.bottom = `${bottomPositionNum + speed}px`
+        }
+    };
+
+    function doggieDown(){
+        const thisDoggie = document.querySelector("img#doggie");
+        const bottomPosition = thisDoggie.style.bottom.replace("px", "");
+        const bottomPositionNum = parseInt(bottomPosition, 10);
+        if (bottomPositionNum > 0){
+        thisDoggie.style.bottom = `${bottomPositionNum - speed}px`
+        }
+    };
+
+    document.addEventListener("keydown", function(event){
+        // console.log(event.key)
+        if(event.key === "ArrowLeft"){
+            doggieLeft()
+        }else if (event.key === "ArrowRight"){
+            doggieRight()
+        }else if(event.key === "ArrowUp"){
+            doggieUp()
+        }else if(event.key === "ArrowDown"){
+            doggieDown()
+        }
+    })
+
+    console.log(window.innerWidth)
+    console.log(window.innerHeight)
+    // console.log()
 })
