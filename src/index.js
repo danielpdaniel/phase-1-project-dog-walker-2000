@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     function createDog(url){
         const newDog = document.createElement("img");
+        newDog.className = "doggies";
         newDog.id = "doggie";
         newDog.src = url;
         newDog.style.left = "100px"
@@ -15,18 +16,37 @@ document.addEventListener("DOMContentLoaded", ()=>{
         document.querySelector("div#dogImg").appendChild(newDog)
     }
 
-    function fetchDog(){
-        fetch(`https://dog.ceo/api/breeds/image/random`)
+    function createDogOption(url){
+        const selector = document.querySelector("select#dogDropDown")
+        const thisOption = document.createElement("option");
+        thisOption.id = url;
+        thisOption.textContent = selector.childNodes.length;
+        // console.log(message)
+        selector.appendChild(thisOption);
+        
+    }
+
+
+    function fetchRandomDogs(){
+        fetch(`https://dog.ceo/api/breeds/image/random/5`)
         .then(res => res.json())
-        .then(data => createDog(data.message))
+        .then(data => {
+            data.message.forEach(createDogOption)
+            // data.message.forEach(console.log(data.message))
+        })
     }
     
+    function fetchSingleDog(){
+        fetch(`https://dog.ceo/api/breeds/image/random`)
+        .then(res => res.json)
+        .then(data => createDog(data.message))
+    }
 
-    // createDog(dogUrl)
-    fetchDog()
 
-    // const doggie = document.querySelector("div").childNodes;
-    // console.log(doggie)
+    createDog(`https://images.dog.ceo/breeds/labrador/n02099712_3613.jpg`)
+    fetchRandomDogs()
+
+
     const speed = 100;
 
     function doggieLeft(){
@@ -77,8 +97,18 @@ document.addEventListener("DOMContentLoaded", ()=>{
             doggieDown()
         }
     })
+    
+    document.querySelector("select#dogDropDown").onchange = function(){
+        const optionIndex = document.querySelector("select#dogDropDown").options.selectedIndex;
+        const selectedOption = document.querySelector("select#dogDropDown").options[`${optionIndex}`]
+        console.log(selectedOption.id)
+        document.querySelector("img#doggie").src = selectedOption.id;
+    }
 
-    console.log(window.innerWidth)
-    console.log(window.innerHeight)
-    // console.log()
+    const options = document.querySelector("select#dogDropDown").options
+
+    // createDog(document.querySelector("select#dogDropDown").options[0].id)
+
+    // console.log(options['0'].id)
+    console.log(document.querySelector("option"))
 })
