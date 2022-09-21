@@ -3,6 +3,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
     newHeader.textContent = "hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
     document.querySelector("body").appendChild(newHeader)
 
+    const bone = document.createElement("span");
+    document.querySelector("body").appendChild(bone);
+    bone.textContent = "hey"
+    bone.style.left = `${Math.floor(Math.random() * 200)}px`
+    bone.style.bottom = `${Math.floor(Math.random() * 200)}px`
+    
+
     const dogUrl = "https://dog.ceo/api/breeds/image/random/"
 
 
@@ -45,6 +52,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     createDog(`https://images.dog.ceo/breeds/labrador/n02099712_3613.jpg`)
     fetchRandomDogs()
+
 
 
     const speed = 100;
