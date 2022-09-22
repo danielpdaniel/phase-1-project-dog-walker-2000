@@ -27,8 +27,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const selector = document.querySelector("select#dogDropDown")
         const thisOption = document.createElement("option");
         thisOption.id = url;
-        thisOption.textContent = selector.childNodes.length;
+        thisOption.textContent = `${selector.childNodes.length}. ${url.split("/")[4]}`;
         // console.log(message)
+        // console.log(url.split('/'))[4];
         selector.appendChild(thisOption);
         
     }
@@ -39,6 +40,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         .then(res => res.json())
         .then(data => {
             data.message.forEach(createDogOption)
+            
             createDog(data.message[0])
             // data.message.forEach(console.log(data.message))
         })
@@ -56,7 +58,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
 
-    const speed = 100;
+    let speed = 100;
 
     function doggieLeft(){
         const thisDoggie = document.querySelector("img#doggie");
@@ -107,17 +109,42 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
     })
     
-    document.querySelector("select#dogDropDown").onchange = function(){
+    // document.querySelector("select#dogDropDown").onchange = function(){
+    //     const optionIndex = document.querySelector("select#dogDropDown").options.selectedIndex;
+    //     const selectedOption = document.querySelector("select#dogDropDown").options[`${optionIndex}`]
+    //     console.log(selectedOption.id)
+    //     document.querySelector("img#doggie").src = selectedOption.id;
+    // }
+
+    const dogSelect = document.querySelector("select#dogDropDown")
+    dogSelect.addEventListener("change", function(){
         const optionIndex = document.querySelector("select#dogDropDown").options.selectedIndex;
         const selectedOption = document.querySelector("select#dogDropDown").options[`${optionIndex}`]
         console.log(selectedOption.id)
         document.querySelector("img#doggie").src = selectedOption.id;
-    }
+    })
 
     const options = document.querySelector("select#dogDropDown").options
+
+    const slowBtn = document.querySelector("button#slower")
+    slowBtn.addEventListener("click", function(){
+        if(speed > 0){
+        speed = speed - 10
+        }else{
+            speed = 0
+        }
+    })
+    const fastBtn = document.querySelector("button#faster")
+    fastBtn.addEventListener("click", function(){
+        if (speed < 200){
+        speed = speed + 10
+        }else{
+            speed = 200
+        }
+    })
 
     // createDog(document.querySelector("select#dogDropDown").options[0].id)
 
     // console.log(options['0'].id)
-    console.log(document.querySelector("option"))
+    // console.log(document.querySelector("option"))
 })
