@@ -120,8 +120,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
     dogSelect.addEventListener("change", function(){
         const optionIndex = document.querySelector("select#dogDropDown").options.selectedIndex;
         const selectedOption = document.querySelector("select#dogDropDown").options[`${optionIndex}`]
-        console.log(selectedOption.id)
+        // console.log(selectedOption.id)
         document.querySelector("img#doggie").src = selectedOption.id;
+        
     })
 
     const options = document.querySelector("select#dogDropDown").options
@@ -143,6 +144,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
     })
 
+    // dogSelect.addEventListener("blur", function(){
+    //     alert("heyyy")
+    // })
     // createDog(document.querySelector("select#dogDropDown").options[0].id)
 
     // console.log(options['0'].id)
