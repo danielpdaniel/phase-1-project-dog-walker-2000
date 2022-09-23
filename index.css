@@ -13,9 +13,12 @@ h1 {
 }
 
 /* #bone {
-    position: absolute
 } */
 
-#dogDropDown {
+/* #dogDropDown {
+    position:sticky;
+} */
+
+.ui {
     position:sticky;
 }
