@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const bone = document.createElement("span");
     document.querySelector("body").appendChild(bone);
     bone.textContent = "🦴";
+    bone.className = "bone"
     bone.style.position = "absolute"
     bone.style.left = `${Math.floor(Math.random() * 1000)}px`
     bone.style.bottom = `${Math.floor(Math.random() * 1000)}px`
