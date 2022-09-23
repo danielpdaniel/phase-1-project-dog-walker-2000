@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
     newHeader.textContent = "hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
     document.querySelector("body").appendChild(newHeader)
 
+    function intMaker(stringValue){
+        const num = stringValue.replace("px", "");
+        const int = parseInt(num, 10);
+        return int;
+    }
     function boneMaker(){
     const bone = document.createElement("span");
     document.querySelector("body").appendChild(bone);
@@ -10,7 +15,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
     bone.style.position = "absolute"
     bone.style.left = `${Math.floor(Math.random() * 1000)}px`
     bone.style.bottom = `${Math.floor(Math.random() * 1000)}px`
-    
+        if(bone.style.left > window.innerWidth){
+            bone.style.left = "0px"
+        }
+        if(bone.style.bottom > window.innerHeight){
+            bone.style.bottom = "0px"
+        }
+    console.log(window.innerHeight)
     }
     boneMaker()
     boneMaker()
