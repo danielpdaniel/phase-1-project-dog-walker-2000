@@ -28,12 +28,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
     boneMaker()
     boneMaker()
     const bones = [...document.getElementsByClassName("bone")]
-    let bonePositions = bones.map(bone => bone.getBoundingClientRect().x)
-   console.log(bonePositions)
+    let bonePositions = bones.map(bone => bone.getBoundingClientRect())
     // bones.map(bone => console.log(bone))
-    for(element of bones){
-        console.log(element.getBoundingClientRect().right, element.getBoundingClientRect().x)
-    }
+    // for(element of bones){
+    //     console.log(element.getBoundingClientRect().right, element.getBoundingClientRect().x)
+    // }
     const dogUrl = "https://dog.ceo/api/breeds/image/random/"
 
     function createDog(url){
@@ -79,9 +78,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
     // createDog(`https://images.dog.ceo/breeds/labrador/n02099712_3613.jpg`)
     fetchRandomDogs()
 
-    function positionComparer(){
-        const thisDoggie = document.querySelector("img#doggie")
-       
+    function positionChecker(){
+        const thisDoggie = document.querySelector("img#doggie");
+        let boundingObj = thisDoggie.getBoundingClientRect();
+        bonePositions.forEach(bone =>{
+        if(boundingObj.bottom >= bone.bottom){
+            if(boundingObj.top <= bone.top){
+                if(boundingObj.left <= bone.left){
+                    if(boundingObj.right >= bone.right){
+                    console.log("hiiii")
+                    }
+                }
+            }
+        }
+    })
         // let boundingObj = thisDoggie.getBoundingClientRect()
         
         // console.log(boundingObj.y - boundingObj.x)
@@ -98,24 +108,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         if(leftPositionNum > 0){
         thisDoggie.style.left = `${leftPositionNum - speed}px`
         }
-        let boundingObj = thisDoggie.getBoundingClientRect()
-        if(boundingObj.bottom >= document.querySelector("span.bone").getBoundingClientRect().bottom){
-            console.log(1)
-            if(boundingObj.top <= document.querySelector("span.bone").getBoundingClientRect().top){
-                console.log(2)
-                if(boundingObj.left <= document.querySelector("span.bone").getBoundingClientRect().left){
-                    console.log(3)
-                    if(boundingObj.right >= document.querySelector("span.bone").getBoundingClientRect().right){
-                    console.log("hiiii")
-                    }
-                }
-            }
-        }
-        // console.log(boundingObj.y - boundingObj.x)
-        // for(e of bones){
-        //     console.log(e.getBoundingClientRect())
-        // }
-        // console.log(document.querySelector("span.bone").getBoundingClientRect().bottom,document.querySelector("span.bone").getBoundingClientRect().top)
     };
 
     function doggieRight(){
@@ -146,12 +138,16 @@ document.addEventListener("DOMContentLoaded", ()=>{
         // console.log(event.key)
         if(event.key === "ArrowLeft"){
             doggieLeft()
+            positionChecker()
         }else if (event.key === "ArrowRight"){
             doggieRight()
+            positionChecker()
         }else if(event.key === "ArrowUp"){
             doggieUp()
+            positionChecker()
         }else if(event.key === "ArrowDown"){
             doggieDown()
+            positionChecker()
         }
     })
     
