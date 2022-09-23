@@ -3,11 +3,18 @@ document.addEventListener("DOMContentLoaded", ()=>{
     newHeader.textContent = "hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
     document.querySelector("body").appendChild(newHeader)
 
+    function boneMaker(){
     const bone = document.createElement("span");
     document.querySelector("body").appendChild(bone);
-    bone.textContent = "hey"
-    bone.style.left = `${Math.floor(Math.random() * 200)}px`
-    bone.style.bottom = `${Math.floor(Math.random() * 200)}px`
+    bone.textContent = "🦴"
+    bone.style.position = "absolute"
+    bone.style.left = `${Math.floor(Math.random() * 1000)}px`
+    bone.style.bottom = `${Math.floor(Math.random() * 1000)}px`
+    
+    }
+    boneMaker()
+    boneMaker()
+    boneMaker()
     
 
     const dogUrl = "https://dog.ceo/api/breeds/image/random/"
