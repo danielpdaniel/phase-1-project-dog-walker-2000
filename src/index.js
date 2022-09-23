@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     bone.style.position = "absolute"
     bone.style.left = `${Math.floor(Math.random() * 1000)}px`
     bone.style.bottom = `${Math.floor(Math.random() * 1000)}px`
-        if(bone.style.left > window.innerWidth){
+        if(intMaker(bone.style.left) > window.innerWidth){
             bone.style.left = "0px"
         }
-        if(bone.style.bottom > window.innerHeight){
+        if(intMaker(bone.style.bottom) > window.innerHeight){
             bone.style.bottom = "0px"
         }
     console.log(window.innerHeight)
