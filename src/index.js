@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     function boneMaker(){
     const bone = document.createElement("span");
     document.querySelector("body").appendChild(bone);
-    bone.textContent = "🦴"
+    bone.textContent = "🦴";
     bone.style.position = "absolute"
     bone.style.left = `${Math.floor(Math.random() * 1000)}px`
     bone.style.bottom = `${Math.floor(Math.random() * 1000)}px`
@@ -77,11 +77,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
     let speed = 100;
+    // const thisDoggie = document.querySelector("img#doggie");
+    // let leftPositionNum = intMaker(thisDoggie.style.left)
 
     function doggieLeft(){
         const thisDoggie = document.querySelector("img#doggie");
-        const leftPosition = thisDoggie.style.left.replace('px', '');
-        const leftPositionNum = parseInt(leftPosition, 10);
+        const leftPositionNum = intMaker(thisDoggie.style.left)
         if(leftPositionNum > 0){
         thisDoggie.style.left = `${leftPositionNum - speed}px`
         }
@@ -89,8 +90,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     function doggieRight(){
         const thisDoggie = document.querySelector("img#doggie");
-        const leftPosition = thisDoggie.style.left.replace('px', '');
-        const leftPositionNum = parseInt(leftPosition, 10);
+        const leftPositionNum = intMaker(thisDoggie.style.left)
         if(leftPositionNum < window.innerWidth){
         thisDoggie.style.left = `${leftPositionNum + speed}px`
         }
@@ -98,8 +98,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     function doggieUp(){
         const thisDoggie = document.querySelector("img#doggie");
-        const bottomPosition = thisDoggie.style.bottom.replace("px", "");
-        const bottomPositionNum = parseInt(bottomPosition, 10);
+        const bottomPositionNum = intMaker(thisDoggie.style.bottom)
         if (bottomPositionNum < window.innerHeight - thisDoggie.height){
         thisDoggie.style.bottom = `${bottomPositionNum + speed}px`
         }
@@ -107,8 +106,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     function doggieDown(){
         const thisDoggie = document.querySelector("img#doggie");
-        const bottomPosition = thisDoggie.style.bottom.replace("px", "");
-        const bottomPositionNum = parseInt(bottomPosition, 10);
+        const bottomPositionNum = intMaker(thisDoggie.style.bottom)
         if (bottomPositionNum > 0){
         thisDoggie.style.bottom = `${bottomPositionNum - speed}px`
         }
