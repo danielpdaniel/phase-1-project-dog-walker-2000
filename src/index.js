@@ -81,12 +81,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
     function positionChecker(){
         const thisDoggie = document.querySelector("img#doggie");
         let boundingObj = thisDoggie.getBoundingClientRect();
-        bonePositions.forEach(bone =>{
-        if(boundingObj.bottom >= bone.bottom){
-            if(boundingObj.top <= bone.top){
-                if(boundingObj.left <= bone.left){
-                    if(boundingObj.right >= bone.right){
-                    console.log("hiiii")
+        bones.forEach(bone =>{let bonePos = bone.getBoundingClientRect();
+        if(boundingObj.bottom >= bonePos.bottom){
+            if(boundingObj.top <= bonePos.top){
+                if(boundingObj.left <= bonePos.left){
+                    if(boundingObj.right >= bonePos.right){
+                    bone.textContent = "YOWCH!"
                     }
                 }
             }
