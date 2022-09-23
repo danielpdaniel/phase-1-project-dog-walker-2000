@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 if(boundingObj.left <= bonePos.left){
                     if(boundingObj.right >= bonePos.right){
                     bone.textContent = "YOWCH!"
+                    document.querySelector("audio#munch").play();
                     }
                 }
             }
