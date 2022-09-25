@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         if(speed > 0){
         speed = speed - 10
         }else{
-            speed = 0
+            speed = 1
         }
     })
     const fastBtn = document.querySelector("button#faster")
