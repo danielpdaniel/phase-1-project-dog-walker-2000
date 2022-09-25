@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", ()=>{
-    let newHeader = document.createElement("h2");
-    newHeader.textContent = "hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
-    newHeader.className = "ui"
-    document.querySelector("body").appendChild(newHeader)
+    let bonesCrunched = document.createElement("h2");
+    let boneCount = 0;
+    bonesCrunched.textContent = `Bones Crunched: ${boneCount}`
+    bonesCrunched.id = "crunched"
+    bonesCrunched.className = "ui"
+    document.querySelector("body").appendChild(bonesCrunched)
 
     function intMaker(stringValue){
         const num = stringValue.replace("px", "");
@@ -28,12 +30,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
     boneMaker()
     boneMaker()
     boneMaker()
+
     const bones = [...document.getElementsByClassName("bone")]
+
     let bonePositions = bones.map(bone => bone.getBoundingClientRect())
-    // bones.map(bone => console.log(bone))
-    // for(element of bones){
-    //     console.log(element.getBoundingClientRect().right, element.getBoundingClientRect().x)
-    // }
+   
     const dogUrl = "https://dog.ceo/api/breeds/image/random/"
 
     function createDog(url){
@@ -51,8 +52,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const thisOption = document.createElement("option");
         thisOption.id = url;
         thisOption.textContent = `${selector.childNodes.length}. ${url.split("/")[4]}`;
-        // console.log(message)
-        // console.log(url.split('/'))[4];
         selector.appendChild(thisOption);
         
     }
@@ -65,7 +64,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             data.message.forEach(createDogOption)
             
             createDog(data.message[0])
-            // data.message.forEach(console.log(data.message))
         })
     }
     
@@ -89,21 +87,18 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     if(doggiePos.left <= bonePos.left){
                         if(doggiePos.right >= bonePos.right){
                         bone.textContent = "YOWCH!"
+                        boneCount = boneCount + 1
+                        bonesCrunched.textContent = `Bones Crunched: ${boneCount}`
                         document.querySelector("audio#munch").play();
                         }
                     }
                 }
             }
         })
-        // let boundingObj = thisDoggie.getBoundingClientRect()
-        
-        // console.log(boundingObj.y - boundingObj.x)
     }
     
 
     let speed = 100;
-    // const thisDoggie = document.querySelector("img#doggie");
-    // let leftPositionNum = intMaker(thisDoggie.style.left)
 
     function doggieLeft(){
         const thisDoggie = document.querySelector("img#doggie");
