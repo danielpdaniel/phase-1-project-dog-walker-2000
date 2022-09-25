@@ -31,11 +31,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
     boneMaker()
     boneMaker()
 
-    const bones = [...document.getElementsByClassName("bone")]
-
-    let bonePositions = bones.map(bone => bone.getBoundingClientRect())
    
-    const dogUrl = "https://dog.ceo/api/breeds/image/random/"
+
+    
+   
+
 
     function createDog(url){
         const newDog = document.createElement("img");
@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     fetchRandomDogs()
 
     function positionChecker(){
+        const bones = [...document.getElementsByClassName("bone")]
         const thisDoggie = document.querySelector("img#doggie");
         let doggiePos = thisDoggie.getBoundingClientRect();
         bones.forEach(bone =>{
@@ -87,6 +88,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     if(doggiePos.left <= bonePos.left){
                         if(doggiePos.right >= bonePos.right){
                         bone.textContent = "YOWCH!"
+                        bone.className = "crunched"
                         boneCount = boneCount + 1
                         bonesCrunched.textContent = `Bones Crunched: ${boneCount}`
                         document.querySelector("audio#munch").play();
