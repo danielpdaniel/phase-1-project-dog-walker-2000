@@ -9,20 +9,21 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const int = parseInt(num, 10);
         return int;
     }
+
     function boneMaker(){
-    const bone = document.createElement("span");
-    document.querySelector("body").appendChild(bone);
-    bone.textContent = "🦴";
-    bone.className = "bone"
-    bone.style.position = "absolute"
-    bone.style.left = `${Math.floor(Math.random() * 1000)}px`
-    bone.style.bottom = `${Math.floor(Math.random() * 1000)}px`
-        if(intMaker(bone.style.left) > window.innerWidth){
-            bone.style.left = "0px"
-        }
-        if(intMaker(bone.style.bottom) > window.innerHeight){
-            bone.style.bottom = "0px"
-        }
+        const bone = document.createElement("span");
+        document.querySelector("body").appendChild(bone);
+        bone.textContent = "🦴";
+        bone.className = "bone"
+        bone.style.position = "absolute"
+        bone.style.left = `${Math.floor(Math.random() * 1000)}px`
+        bone.style.bottom = `${Math.floor(Math.random() * 1000)}px`
+            if(intMaker(bone.style.left) > window.innerWidth){
+                bone.style.left = "0px"
+            }
+            if(intMaker(bone.style.bottom) > window.innerHeight){
+                bone.style.bottom = "0px"
+            }
     }
     boneMaker()
     boneMaker()
@@ -80,19 +81,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     function positionChecker(){
         const thisDoggie = document.querySelector("img#doggie");
-        let boundingObj = thisDoggie.getBoundingClientRect();
-        bones.forEach(bone =>{let bonePos = bone.getBoundingClientRect();
-        if(boundingObj.bottom >= bonePos.bottom){
-            if(boundingObj.top <= bonePos.top){
-                if(boundingObj.left <= bonePos.left){
-                    if(boundingObj.right >= bonePos.right){
-                    bone.textContent = "YOWCH!"
-                    document.querySelector("audio#munch").play();
+        let doggiePos = thisDoggie.getBoundingClientRect();
+        bones.forEach(bone =>{
+        let bonePos = bone.getBoundingClientRect();
+            if(doggiePos.bottom >= bonePos.bottom){
+                if(doggiePos.top <= bonePos.top){
+                    if(doggiePos.left <= bonePos.left){
+                        if(doggiePos.right >= bonePos.right){
+                        bone.textContent = "YOWCH!"
+                        document.querySelector("audio#munch").play();
+                        }
                     }
                 }
             }
-        }
-    })
+        })
         // let boundingObj = thisDoggie.getBoundingClientRect()
         
         // console.log(boundingObj.y - boundingObj.x)
@@ -172,7 +174,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     const slowBtn = document.querySelector("button#slower")
     slowBtn.addEventListener("click", function(){
-        if(speed > 0){
+        if(speed > 10){
         speed = speed - 10
         }else{
             speed = 1
