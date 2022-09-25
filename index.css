@@ -22,3 +22,7 @@ h1 {
 .ui {
     position:sticky;
 }
+
+.boneExplode{
+    position: absolute;
+}

@@ -87,11 +87,18 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 if(doggiePos.top <= bonePos.top){
                     if(doggiePos.left <= bonePos.left){
                         if(doggiePos.right >= bonePos.right){
-                        bone.textContent = "YOWCH!"
+                        bone.textContent = ""
                         bone.className = "crunched"
                         boneCount = boneCount + 1
                         bonesCrunched.textContent = `Bones Crunched: ${boneCount}`
                         document.querySelector("audio#munch").play();
+                        let boneExplode = document.createElement("img");
+                        boneExplode.src = "images/bone_explosion.gif";
+                        boneExplode.className = "boneExplode";
+                        boneExplode.style.left = `0px`;
+                        boneExplode.style.bottom = `0px`;
+                        
+                        bone.appendChild(boneExplode);
                         }
                     }
                 }
