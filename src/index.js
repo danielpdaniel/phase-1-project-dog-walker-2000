@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     bonesCrunched.className = "ui"
     document.querySelector("body").appendChild(bonesCrunched)
 
+  
+
     function intMaker(stringValue){
         const num = stringValue.replace("px", "");
         const int = parseInt(num, 10);
@@ -33,7 +35,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
    
 
-    
+    function weatherCardMaker() {
+
+    }
    
 
 
@@ -73,6 +77,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
         .then(data => createDog(data.message))
     }
 
+    function fetchWeather(){
+
+    }
 
     // createDog(`https://images.dog.ceo/breeds/labrador/n02099712_3613.jpg`)
     fetchRandomDogs()
@@ -91,13 +98,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         bone.className = "crunched"
                         boneCount = boneCount + 1
                         bonesCrunched.textContent = `Bones Crunched: ${boneCount}`
+                        if (boneCount === 3){
+                            bonesCrunched.textContent = `BonesCrunched: 3 Congrats! You've Crunched all the bones!`
+                        }
                         document.querySelector("audio#munch").play();
                         let boneExplode = document.createElement("img");
                         boneExplode.src = "images/bone_explosion.gif";
                         boneExplode.className = "boneExplode";
                         boneExplode.style.left = `0px`;
                         boneExplode.style.bottom = `0px`;
-                        
                         bone.appendChild(boneExplode);
                         }
                     }
@@ -156,6 +165,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             doggieDown()
             positionChecker()
         }
+        
     })
     
     // document.querySelector("select#dogDropDown").onchange = function(){
