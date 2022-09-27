@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         body: JSON.stringify(dog)
         })
         .then(res => res.json)
-        .then(data => console.log(data))
+        .then(data => data)
     }
     
     fetchDogs()
@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
                             let currentDog = dogOptions[document.querySelector("select").options.selectedIndex]
                             currentDog.wins += 1;
                             document.querySelector(`h4#${currentDog.name}Wins`).textContent = `Wins: ${currentDog.wins}`
-                            console.log(currentDog)
                             patchDogWins(currentDog)
                         }
                         document.querySelector("audio#munch").play();
