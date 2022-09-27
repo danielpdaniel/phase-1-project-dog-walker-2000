@@ -6,7 +6,7 @@
       "image": "https://i.postimg.cc/4dL9Tcwh/labrador.png",
       "likes": 8,
       "breed": "Labrador",
-      "wins": 4
+      "wins": 6
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "image": "https://i.postimg.cc/nrXQVLwS/mix.png",
       "likes": 14,
       "breed": "Mix",
-      "wins": 0
+      "wins": 7
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "image": "https://i.postimg.cc/MTKQ450S/greatpyrenees.png",
       "likes": 14,
       "breed": "Great Pyrenees",
-      "wins": 0
+      "wins": 1
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "image": "https://i.postimg.cc/QCvKFr28/shibainu.png",
       "likes": 14,
       "breed": "Shiba Inu",
-      "wins": 0
+      "wins": 3
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "image": "https://i.postimg.cc/hG0mp6ds/dauchsund.png",
       "likes": 14,
       "breed": "Dauchsund",
-      "wins": 0
+      "wins": 2
     }
   ]
 }
