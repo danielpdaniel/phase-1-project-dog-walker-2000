@@ -137,10 +137,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let doggiePos = thisDoggie.getBoundingClientRect();
         bones.forEach(bone =>{
         let bonePos = bone.getBoundingClientRect();
-            if(doggiePos.bottom >= bonePos.bottom){
-                if(doggiePos.top <= bonePos.top){
-                    if(doggiePos.left <= bonePos.left){
-                        if(doggiePos.right >= bonePos.right){
+            if(doggiePos.bottom + 3 >= bonePos.bottom){
+                if(doggiePos.top - 3 <= bonePos.top){
+                    if(doggiePos.left - 3 <= bonePos.left){
+                        if(doggiePos.right + 3 >= bonePos.right){
                         bone.textContent = ""
                         bone.className = "crunched"
                         boneCount = boneCount + 1
@@ -163,7 +163,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
     
 
-    let speed = 100;
+    let speed = 5;
+    let doggiePadding = "5px"
 
     function doggieLeft(){
         const thisDoggie = document.querySelector("img#doggie");
@@ -240,7 +241,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const slowBtn = document.querySelector("button#slower")
     slowBtn.addEventListener("click", function(){
         if(speed > 10){
-        speed = speed - 10
+        speed = speed - 5
         }else{
             speed = 1
         }
@@ -248,7 +249,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const fastBtn = document.querySelector("button#faster")
     fastBtn.addEventListener("click", function(){
         if (speed < 200){
-        speed = speed + 10
+        speed = speed + 5
         }else{
             speed = 200
         }
