@@ -32,9 +32,13 @@ h1 {
 .dogCard{
     background-color: orange;
     width: 8rem;
+    /* border: 10px; */
     border-radius: 7px;
     font-size: medium;
-    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 1px;
+    padding-top: 1px;
 }
 
 body {
