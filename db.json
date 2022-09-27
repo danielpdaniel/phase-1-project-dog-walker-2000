@@ -5,35 +5,40 @@
         "name": "Guinness",
         "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
         "likes": 8,
-        "breed": "Labrador"
+        "breed": "Labrador",
+        "wins": 0
       },
       {
         "id": 2,
         "name": "Bailey",
         "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
         "likes": 14,
-        "breed": "Mix"
+        "breed": "Mix",
+        "wins": 0
       },
       {
         "id": 3,
         "name": "Sheila",
         "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
         "likes": 14,
-        "breed": "Great Pyrenese"
+        "breed": "Great Pyrenees",
+        "wins": 0
       },
       {
         "id": 4,
         "name": "Norm",
         "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
         "likes": 14,
-        "breed": "Shiba Inu"
+        "breed": "Shiba Inu",
+        "wins": 0
       },
       {
         "id": 5,
         "name": "Grayson",
         "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
         "likes": 14,
-        "breed": "Dauchsund"
+        "breed": "Dauchsund",
+        "wins": 0
       }
     ]
   }

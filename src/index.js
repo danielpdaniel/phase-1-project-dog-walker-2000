@@ -1,10 +1,16 @@
 document.addEventListener("DOMContentLoaded", ()=>{
+    const body = document.querySelector("body")
     let bonesCrunched = document.createElement("h2");
     let boneCount = 0;
     bonesCrunched.textContent = `Bones Crunched: ${boneCount}`
     bonesCrunched.id = "crunched"
     bonesCrunched.className = "ui"
-    document.querySelector("body").appendChild(bonesCrunched)
+    body.appendChild(bonesCrunched)
+
+    let dogsAvailable = document.createElement("h2");
+    dogsAvailable.id = "dogsAvailable";
+    dogsAvailable.textContent = `Dogs Available:`;
+    body.appendChild(dogsAvailable);
 
   
 
@@ -42,28 +48,42 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
     function createDog(dog){
-        console.log(dog)
+        
         const dogCard = document.createElement("div")
         dogCard.className = "dogCard";
 
         const dogName = document.createElement("h4"); 
         dogName.textContent = `Name: ${dog.name}`;
 
-        const dogBreed = document.createElement("h5");
+        const dogBreed = document.createElement("h4");
         dogBreed.textContent = `Dog Breed: ${dog.breed}`;
 
+        const dogWins = document.createElement("h4");
+        dogWins.textContent = `Games Won: ${dog.wins}`;
+        
+        if (document.querySelector("img#doggie") === null){
         const dogImg = document.createElement("img");
-        dogImg.className = "doggies";
+        dogImg.className = "doggie";
         dogImg.id = "doggie";
         dogImg.src = dog.image;
-        dogImg.style.left = "100px";
+        dogImg.style.left = "0px";
         dogImg.style.bottom = "0px";
+        body.appendChild(dogImg);
+        }
+
+        const dogCardImg = document.createElement("img")
+        dogCardImg.className = "dogCardImg"
+        dogCardImg.src = dog.image
     
         dogCard.appendChild(dogName);
         dogCard.appendChild(dogBreed);
-        document.querySelector("body").appendChild(dogImg);
-        document.querySelector("body").appendChild(dogCard);
+        dogCard.appendChild(dogWins);
+        dogCard.appendChild(dogCardImg)
+        // body.appendChild(dogImg);
+        dogsAvailable.appendChild(dogCard);
     }
+
+    let dogOptions;
 
     function createDogOption(dog){
         const selector = document.querySelector("select#dogDropDown")
@@ -79,21 +99,25 @@ document.addEventListener("DOMContentLoaded", ()=>{
         fetch(`http://localhost:3000/dogs`)
         .then(res => res.json())
         .then(data => {
-            if (document.querySelector("select").options.length === 0){
-            for(let dog of data){
-                createDogOption(dog)
-            }
-            }
-            if(input === undefined){
-            createDog(data[0]);
-            }else{
-                createDog(data[input])
-            }
+            // if (document.querySelector("select").options.length === 0){
+            // for (dog of data){
+            //     createDogOption(dog)
+            // }
+            // }
+
+            // if(input === undefined){
+            // createDog(data[0]);
+            // }else{
+            //     createDog(data[input])
+            // }
 
             // for (let dog of data){
             //     createDog(dog);
             //     createDogOption(dog);
             // }
+            dogOptions = [...data];
+            data.forEach(createDogOption)
+            data.forEach(createDog)
            
         })
     }
@@ -102,10 +126,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         fetch(`https://dog.ceo/api/breeds/image/random`)
         .then(res => res.json)
         .then(data => createDog(data.message))
-    }
-
-    function fetchWeather(){
-
     }
 
     // createDog(`https://images.dog.ceo/breeds/labrador/n02099712_3613.jpg`)
@@ -126,7 +146,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         boneCount = boneCount + 1
                         bonesCrunched.textContent = `Bones Crunched: ${boneCount}`
                         if (boneCount === 3){
-                            bonesCrunched.textContent = `BonesCrunched: 3 Congrats! You've Crunched all the bones!`
+                            bonesCrunched.textContent = `Bones Crunched: 3, Congrats! You've Crunched all the bones!`
                         }
                         document.querySelector("audio#munch").play();
                         let boneExplode = document.createElement("img");
@@ -205,14 +225,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const dogSelect = document.querySelector("select#dogDropDown")
     dogSelect.addEventListener("change", e => {
        const dogImg = document.querySelector("img#doggie")
-       const dogCard = document.querySelector("div.dogCard")
-       dogImg.remove();
-       dogCard.remove();
+    //    const dogCard = document.querySelector("div.dogCard")
+    //    dogImg.remove();
+    //    dogCard.remove();
         const optionIndex = document.querySelector("select#dogDropDown").options.selectedIndex;
         const selectedOption = document.querySelector("select#dogDropDown").options[`${optionIndex}`]
-        // document.querySelector("img#doggie").src = selectedOption.id;
-        console.log(selectedOption)
-        fetchRandomDogs(optionIndex)
+        dogImg.src = dogOptions[optionIndex].image;
+        
+        // fetchRandomDogs(optionIndex)
     })
 
     const options = document.querySelector("select#dogDropDown").options

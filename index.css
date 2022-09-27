@@ -7,10 +7,14 @@ h1 {
     
 }
 
+h4 {
+    font-size: smaller;
+}
+
 #doggie {
     max-width: 200px;
     position: absolute;
-    /* left: 100px;
+    /* left: 0px;
     bottom: 0px; */
 }
 
@@ -30,6 +34,7 @@ h1 {
 }
 
 .dogCard{
+    /* display: flex; */
     background-color: orange;
     width: 8rem;
     /* border: 10px; */
@@ -39,8 +44,17 @@ h1 {
     padding-left: 10px;
     padding-bottom: 1px;
     padding-top: 1px;
+    margin: 10px;
 }
 
 body {
 background-image: url("images/bg.png");
+}
+
+.dogCardImg {
+    max-width: 50px;
+}
+
+#dogsAvailable {
+    display: flex;
 }
