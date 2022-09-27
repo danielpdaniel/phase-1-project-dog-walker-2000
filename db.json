@@ -3,7 +3,7 @@
       {
         "id": 1,
         "name": "Guinness",
-        "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
+        "image": "https://i.postimg.cc/4dL9Tcwh/labrador.png",
         "likes": 8,
         "breed": "Labrador",
         "wins": 0
@@ -11,7 +11,7 @@
       {
         "id": 2,
         "name": "Bailey",
-        "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
+        "image": "https://i.postimg.cc/nrXQVLwS/mix.png",
         "likes": 14,
         "breed": "Mix",
         "wins": 0
@@ -19,7 +19,7 @@
       {
         "id": 3,
         "name": "Sheila",
-        "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
+        "image": "https://i.postimg.cc/MTKQ450S/greatpyrenees.png",
         "likes": 14,
         "breed": "Great Pyrenees",
         "wins": 0
@@ -27,7 +27,7 @@
       {
         "id": 4,
         "name": "Norm",
-        "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
+        "image": "https://i.postimg.cc/QCvKFr28/shibainu.png",
         "likes": 14,
         "breed": "Shiba Inu",
         "wins": 0
@@ -35,7 +35,7 @@
       {
         "id": 5,
         "name": "Grayson",
-        "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
+        "image": "https://i.postimg.cc/hG0mp6ds/dauchsund.png",
         "likes": 14,
         "breed": "Dauchsund",
         "wins": 0
