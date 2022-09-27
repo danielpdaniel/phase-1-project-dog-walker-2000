@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", ()=>{
+
+    //Add Elements
+
     const body = document.querySelector("body")
     let bonesCrunched = document.createElement("h2");
     let boneCount = 0;
@@ -13,6 +16,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     body.appendChild(dogsAvailable);
 
   
+    //Functions
 
     function intMaker(stringValue){
         const num = stringValue.replace("px", "");
@@ -28,25 +32,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
         bone.style.position = "absolute"
         bone.style.left = `${Math.floor(Math.random() * 1000)}px`
         bone.style.bottom = `${Math.floor(Math.random() * 1000)}px`
-            if(intMaker(bone.style.left) > window.innerWidth){
+            if(intMaker(bone.style.left) > window.innerWidth - 10){
                 bone.style.left = "20px"
             }
-            if(intMaker(bone.style.bottom) > window.innerHeight){
+            if(intMaker(bone.style.bottom) > window.innerHeight - 10){
                 bone.style.bottom = "20px"
             }
     }
     boneMaker()
     boneMaker()
     boneMaker()
-
    
-
-    function weatherCardMaker() {
-
-    }
-   
-
-
     function createDog(dog){
         
         const dogCard = document.createElement("div")
@@ -94,7 +90,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
         
     }
 
-
+    //Fetch Requests
+    
     function fetchRandomDogs(input){
         fetch(`http://localhost:3000/dogs`)
         .then(res => res.json())
@@ -131,6 +128,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     // createDog(`https://images.dog.ceo/breeds/labrador/n02099712_3613.jpg`)
     fetchRandomDogs()
 
+    //Game Controls
     function positionChecker(){
         const bones = [...document.getElementsByClassName("bone")]
         const thisDoggie = document.querySelector("img#doggie");
