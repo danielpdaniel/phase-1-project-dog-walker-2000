@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         
         const dogCard = document.createElement("div")
         dogCard.className = "dogCard";
+        dogCard.id = dog.name
 
         const dogName = document.createElement("h4"); 
         dogName.textContent = `Name: ${dog.name}`;
@@ -55,7 +56,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
         dogBreed.textContent = `Dog Breed: ${dog.breed}`;
 
         const dogWins = document.createElement("h4");
-        dogWins.textContent = `Games Won: ${dog.wins}`;
+        dogWins.textContent = `Wins: ${dog.wins}`;
+        dogWins.id = `${dog.name}Wins`;
         
         if (document.querySelector("img#doggie") === null){
         const dogImg = document.createElement("img");
@@ -92,7 +94,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     //Fetch Requests
     
-    function fetchRandomDogs(input){
+    function fetchDogs(){
         fetch(`http://localhost:3000/dogs`)
         .then(res => res.json())
         .then(data => {
@@ -119,14 +121,19 @@ document.addEventListener("DOMContentLoaded", ()=>{
         })
     }
     
-    function fetchSingleDog(){
-        fetch(`https://dog.ceo/api/breeds/image/random`)
+    function patchDogWins(dog){
+        fetch(`http://localhost:3000/dogs/${dog.id}`, {
+        method: 'PATCH',
+        headers:{
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(dog)
+        })
         .then(res => res.json)
-        .then(data => createDog(data.message))
+        .then(data => console.log(data))
     }
-
-    // createDog(`https://images.dog.ceo/breeds/labrador/n02099712_3613.jpg`)
-    fetchRandomDogs()
+    
+    fetchDogs()
 
     //Game Controls
     function positionChecker(){
@@ -145,6 +152,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         bonesCrunched.textContent = `Bones Crunched: ${boneCount}`
                         if (boneCount === 3){
                             bonesCrunched.textContent = `Bones Crunched: 3, Congrats! You've Crunched all the bones!`
+                            let currentDog = dogOptions[document.querySelector("select").options.selectedIndex]
+                            currentDog.wins += 1;
+                            document.querySelector(`h4#${currentDog.name}Wins`).textContent = `Wins: ${currentDog.wins}`
+                            console.log(currentDog)
+                            patchDogWins(currentDog)
                         }
                         document.querySelector("audio#munch").play();
                         let boneExplode = document.createElement("img");

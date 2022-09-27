@@ -6,6 +6,6 @@ DOG WALKER 2000 is a game where you "walk" a dog around the screen to collect bo
 
     Pressing the "+" or "-" buttons will change how far the dog moves with each key-press.
 
-    The dog images were drawn by me, but are hosted on postimg.cc
+    All dog images were drawn by me, but are hosted on postimg.cc
 
     
