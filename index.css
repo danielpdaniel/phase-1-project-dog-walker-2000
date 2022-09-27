@@ -33,4 +33,10 @@ h1 {
     background-color: orange;
     width: 8rem;
     border-radius: 7px;
+    font-size: medium;
+    padding: 3px;
+}
+
+body {
+background-image: url("images/bg.png");
 }
