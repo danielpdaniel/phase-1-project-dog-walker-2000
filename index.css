@@ -10,6 +10,8 @@ h1 {
 #doggie {
     max-width: 200px;
     position: absolute;
+    /* left: 100px;
+    bottom: 0px; */
 }
 
 /* #bone {
@@ -25,4 +27,10 @@ h1 {
 
 .boneExplode{
     position: absolute;
+}
+
+.dogCard{
+    background-color: orange;
+    width: 8rem;
+    border-radius: 7px;
 }

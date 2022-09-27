@@ -23,10 +23,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
         bone.style.left = `${Math.floor(Math.random() * 1000)}px`
         bone.style.bottom = `${Math.floor(Math.random() * 1000)}px`
             if(intMaker(bone.style.left) > window.innerWidth){
-                bone.style.left = "0px"
+                bone.style.left = "20px"
             }
             if(intMaker(bone.style.bottom) > window.innerHeight){
-                bone.style.bottom = "0px"
+                bone.style.bottom = "20px"
             }
     }
     boneMaker()
@@ -41,33 +41,60 @@ document.addEventListener("DOMContentLoaded", ()=>{
    
 
 
-    function createDog(url){
-        const newDog = document.createElement("img");
-        newDog.className = "doggies";
-        newDog.id = "doggie";
-        newDog.src = url;
-        newDog.style.left = "100px"
-        newDog.style.bottom = `0px`
-        document.querySelector("div#dogImg").appendChild(newDog)
+    function createDog(dog){
+        console.log(dog)
+        const dogCard = document.createElement("div")
+        dogCard.className = "dogCard";
+
+        const dogName = document.createElement("h4"); 
+        dogName.textContent = `Name: ${dog.name}`;
+
+        const dogBreed = document.createElement("h5");
+        dogBreed.textContent = `Dog Breed: ${dog.breed}`;
+
+        const dogImg = document.createElement("img");
+        dogImg.className = "doggies";
+        dogImg.id = "doggie";
+        dogImg.src = dog.image;
+        dogImg.style.left = "100px";
+        dogImg.style.bottom = "0px";
+    
+        dogCard.appendChild(dogName);
+        dogCard.appendChild(dogBreed);
+        document.querySelector("body").appendChild(dogImg);
+        document.querySelector("body").appendChild(dogCard);
     }
 
-    function createDogOption(url){
+    function createDogOption(dog){
         const selector = document.querySelector("select#dogDropDown")
         const thisOption = document.createElement("option");
-        thisOption.id = url;
-        thisOption.textContent = `${selector.childNodes.length}. ${url.split("/")[4]}`;
+        thisOption.id = dog.name;
+        thisOption.textContent = `${dog.name} the ${dog.breed}`;
         selector.appendChild(thisOption);
         
     }
 
 
-    function fetchRandomDogs(){
-        fetch(`https://dog.ceo/api/breeds/image/random/5`)
+    function fetchRandomDogs(input){
+        fetch(`http://localhost:3000/dogs`)
         .then(res => res.json())
         .then(data => {
-            data.message.forEach(createDogOption)
-            
-            createDog(data.message[0])
+            if (document.querySelector("select").options.length === 0){
+            for(let dog of data){
+                createDogOption(dog)
+            }
+            }
+            if(input === undefined){
+            createDog(data[0]);
+            }else{
+                createDog(data[input])
+            }
+
+            // for (let dog of data){
+            //     createDog(dog);
+            //     createDogOption(dog);
+            // }
+           
         })
     }
     
@@ -176,12 +203,16 @@ document.addEventListener("DOMContentLoaded", ()=>{
     // }
 
     const dogSelect = document.querySelector("select#dogDropDown")
-    dogSelect.addEventListener("change", function(){
+    dogSelect.addEventListener("change", e => {
+       const dogImg = document.querySelector("img#doggie")
+       const dogCard = document.querySelector("div.dogCard")
+       dogImg.remove();
+       dogCard.remove();
         const optionIndex = document.querySelector("select#dogDropDown").options.selectedIndex;
         const selectedOption = document.querySelector("select#dogDropDown").options[`${optionIndex}`]
-        // console.log(selectedOption.id)
-        document.querySelector("img#doggie").src = selectedOption.id;
-        
+        // document.querySelector("img#doggie").src = selectedOption.id;
+        console.log(selectedOption)
+        fetchRandomDogs(optionIndex)
     })
 
     const options = document.querySelector("select#dogDropDown").options
