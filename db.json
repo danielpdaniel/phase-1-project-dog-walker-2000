@@ -2,38 +2,38 @@
     "dogs": [
       {
         "id": 1,
-        "name": "Woody",
+        "name": "Guinness",
         "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
         "likes": 8,
         "breed": "Labrador"
       },
       {
         "id": 2,
-        "name": "Buzz Lightyear",
+        "name": "Bailey",
         "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
         "likes": 14,
-        "breed": "Labrador"
+        "breed": "Mix"
       },
       {
         "id": 3,
-        "name": "Buzz Lightyear",
+        "name": "Sheila",
         "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
         "likes": 14,
-        "breed": "Labrador"
+        "breed": "Great Pyrenese"
       },
       {
         "id": 4,
-        "name": "Buzz Lightyear",
+        "name": "Norm",
         "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
         "likes": 14,
-        "breed": "Labrador"
+        "breed": "Shiba Inu"
       },
       {
         "id": 5,
-        "name": "Buzz Lightyear",
+        "name": "Grayson",
         "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
         "likes": 14,
-        "breed": "Labrador"
+        "breed": "Dauchsund"
       }
     ]
   }
