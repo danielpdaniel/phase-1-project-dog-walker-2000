@@ -12,7 +12,7 @@ all available dog options are visible via the dog cards on screen.
 
 Pressing the "+" or "-" buttons will change how far the dog moves with each key-press.
 
-## Contributions
+## Sources and Contributions
 
 The app uses [json-server](https://www.npmjs.com/package/json-server) and a db.json file to fetch info on 5 dogs, then uses that info to populate a series of cards for each dog. json-server also allows the app to keep a running tally of how many games each dog has won.
 

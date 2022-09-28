@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", ()=>{
 
-    //Add Elements
+    //Adding Elements
 
     const body = document.querySelector("body")
     let bonesCrunched = document.createElement("h2");
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         dogCard.appendChild(dogBreed);
         dogCard.appendChild(dogWins);
         dogCard.appendChild(dogCardImg)
-        // body.appendChild(dogImg);
+        
         dogsAvailable.appendChild(dogCard);
     }
 
@@ -98,22 +98,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         fetch(`http://localhost:3000/dogs`)
         .then(res => res.json())
         .then(data => {
-            // if (document.querySelector("select").options.length === 0){
-            // for (dog of data){
-            //     createDogOption(dog)
-            // }
-            // }
-
-            // if(input === undefined){
-            // createDog(data[0]);
-            // }else{
-            //     createDog(data[input])
-            // }
-
-            // for (let dog of data){
-            //     createDog(dog);
-            //     createDogOption(dog);
-            // }
             dogOptions = [...data];
             data.forEach(createDogOption)
             data.forEach(createDog)
@@ -208,7 +192,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     };
 
     document.addEventListener("keydown", function(event){
-        // console.log(event.key)
         if(event.key === "ArrowLeft"){
             doggieLeft()
             positionChecker()
@@ -224,25 +207,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
         
     })
-    
-    // document.querySelector("select#dogDropDown").onchange = function(){
-    //     const optionIndex = document.querySelector("select#dogDropDown").options.selectedIndex;
-    //     const selectedOption = document.querySelector("select#dogDropDown").options[`${optionIndex}`]
-    //     console.log(selectedOption.id)
-    //     document.querySelector("img#doggie").src = selectedOption.id;
-    // }
 
     const dogSelect = document.querySelector("select#dogDropDown")
     dogSelect.addEventListener("change", e => {
        const dogImg = document.querySelector("img#doggie")
-    //    const dogCard = document.querySelector("div.dogCard")
-    //    dogImg.remove();
-    //    dogCard.remove();
         const optionIndex = document.querySelector("select#dogDropDown").options.selectedIndex;
         const selectedOption = document.querySelector("select#dogDropDown").options[`${optionIndex}`]
         dogImg.src = dogOptions[optionIndex].image;
-        
-        // fetchRandomDogs(optionIndex)
     })
 
     const options = document.querySelector("select#dogDropDown").options
@@ -263,15 +234,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
             speed = 200
         }
     })
-
-
-    // dogSelect.addEventListener("blur", function(){
-    //     alert("heyyy")
-    // })
-    // createDog(document.querySelector("select#dogDropDown").options[0].id)
-
-    // console.log(options['0'].id)
-    // console.log(document.querySelector("option"))
-    // console.log(document.getElementsByClassName("bone").length)
-    // console.log(document.querySelector("select").getBoundingClientRect())
 })

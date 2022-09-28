@@ -6,7 +6,7 @@
       "image": "https://i.postimg.cc/4dL9Tcwh/labrador.png",
       "likes": 8,
       "breed": "Labrador",
-      "wins": 6
+      "wins": 7
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "image": "https://i.postimg.cc/nrXQVLwS/mix.png",
       "likes": 14,
       "breed": "Mix",
-      "wins": 7
+      "wins": 8
     },
     {
       "id": 3,
@@ -30,7 +30,7 @@
       "image": "https://i.postimg.cc/QCvKFr28/shibainu.png",
       "likes": 14,
       "breed": "Shiba Inu",
-      "wins": 3
+      "wins": 4
     },
     {
       "id": 5,
