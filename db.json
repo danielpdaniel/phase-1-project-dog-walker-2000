@@ -14,7 +14,7 @@
       "image": "https://i.postimg.cc/nrXQVLwS/mix.png",
       "likes": 14,
       "breed": "Mix",
-      "wins": 8
+      "wins": 9
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "image": "https://i.postimg.cc/MTKQ450S/greatpyrenees.png",
       "likes": 14,
       "breed": "Great Pyrenees",
-      "wins": 1
+      "wins": 3
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "image": "https://i.postimg.cc/hG0mp6ds/dauchsund.png",
       "likes": 14,
       "breed": "Dauchsund",
-      "wins": 2
+      "wins": 3
     }
   ]
 }

@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
         bone.style.position = "absolute"
         bone.style.left = `${Math.floor(Math.random() * 1000)}px`
         bone.style.bottom = `${Math.floor(Math.random() * 1000)}px`
-            if(intMaker(bone.style.left) > window.innerWidth - 10){
-                bone.style.left = "20px"
+            if(intMaker(bone.style.left) > window.innerWidth - 20){
+                bone.style.left = "50px"
             }
-            if(intMaker(bone.style.bottom) > window.innerHeight - 10){
-                bone.style.bottom = "20px"
+            if(intMaker(bone.style.bottom) > window.innerHeight - 20){
+                bone.style.bottom = "50px"
             }
     }
     boneMaker()
